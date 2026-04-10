@@ -4,3 +4,8 @@ body {
     background-color: var(--dark-bg);
     color: var(--soft-white);
 }
+
+html {
+    scroll-behavior: smooth;
+}
+

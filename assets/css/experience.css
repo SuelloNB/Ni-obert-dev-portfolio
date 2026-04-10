@@ -1,6 +1,7 @@
-.experience{
+.experience {
     margin: 0 auto;
     padding: 1rem;
+    scroll-margin-top: 90px;
 }
 
 .experience h1{
