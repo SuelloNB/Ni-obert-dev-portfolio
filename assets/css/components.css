@@ -1,8 +1,9 @@
 .site-header{
     position: sticky;
+    top: 0;
+    z-index: 1000;
     width: 100%;
     height: 70px;
-    top: 0;
     background-color: var(--pure-black);
 }
 
@@ -23,13 +24,11 @@
 }
 
 .navbar li a{
-    display: block;
+    display: inline-block;
     text-align: center;
     padding: 14px 16px;
-    text-decoration: none;
     color: var(--soft-white);
     position: relative;
-    display: inline-block;
 }
 
 .header img{
@@ -43,8 +42,7 @@
     object-fit: cover;
 }
 
-/*Navbar hover*/
-.navbar a::after {
+.navbar a::after{
     content: "";
     position: absolute;
     left: 16px;
@@ -55,29 +53,23 @@
     transition: width 0.3s ease;
 }
 
-.navbar a:hover::after {
+.navbar a:hover::after{
     width: calc(100% - 32px);
 }
 
-/*Icons*/
 .icons{
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
-    margin: 1.25rem 0rem 1.25rem 0rem;
+    margin: 1.25rem 0;
 }
 
-.btn-icon svg {
-    fill: var(--cool-gray);
-    transition: fill 0.25s ease, transform 0.25s ease;
-}
-
-.icons a {
+.icons a{
     text-decoration: none;
 }
 
-.btn-icon {
+.btn-icon{
     width: 80px;
     height: 80px;
     display: inline-flex;
@@ -86,32 +78,47 @@
     border-radius: 50%;
     background: var(--pure-black);
     border: 1px solid var(--charcoal);
-    text-decoration: none;
     outline: none;
     box-shadow: none;
     -webkit-tap-highlight-color: transparent;
-    transition: transform 0.25s ease,
-                background-color 0.25s ease,
-                box-shadow 0.25s ease,
-                border-color 0.25s ease;
+    transition:
+        transform 0.25s ease,
+        background-color 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
 }
 
-/*Buttons*/
+.btn-icon svg{
+    fill: var(--cool-gray);
+    transition: fill 0.25s ease, transform 0.25s ease;
+}
+
+.btn-icon:hover{
+    transform: translateY(-6px) scale(1.04);
+    background: var(--soft-white);
+    border-color: var(--charcoal);
+}
+
+.btn-icon:hover svg{
+    fill: var(--pure-black);
+    transform: scale(1.08);
+}
+
 .btn{
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
-    padding: 2rem 4rem;
+    min-width: 180px;
+    padding: 1.1rem 2rem;
     border-radius: 999px;
     font-weight: 700;
     font-size: var(--buttons);
-    transition: transform 0.25s ease, 
-                box-shadow 0.25s ease, 
-                background-color 0.25s ease, 
-                color 0.25s ease, 
-                border-color 0.25s ease;
-    min-width: 180px;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
 }
 
 .btn-primary{
@@ -120,42 +127,12 @@
     border: 1px solid var(--charcoal);
 }
 
-/*Hovers*/
 .btn:hover{
-    transition: transform 0.25s ease,
-                box-shadow 0.25s ease, 
-                background-color 0.25s ease, 
-                color 0.25s ease, 
-                border-color 0.25s ease;
     box-shadow: var(--shadow-light);
     transform: translateY(-3px);
 }
 
 .btn-primary:hover{
-    fill: var(--pure-black);
     border-color: var(--light-gray);
-}
-
-.btn-icon:hover {
-    transform: translateY(-6px) scale(1.04);
-    background: var(--soft-white);
-    border-color: var(--charcoal);
-}
-
-.btn-icon:hover svg {
-    fill: #000000;
-    transform: scale(1.08);
-}
-
-.btn-icon:focus,
-.btn-icon:active,
-.btn-icon:visited {
-    outline: none;
-    box-shadow: none;
-    border-color: var(--charcoal);
-}
-
-.btn-icon:focus-visible {
-    outline: 2px solid var(--light-gray);
-    outline-offset: 4px;
+    color: var(--soft-white);
 }
