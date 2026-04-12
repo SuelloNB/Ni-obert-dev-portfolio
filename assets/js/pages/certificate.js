@@ -1,33 +1,41 @@
-import { certficateData } from "../data/certificateData";
+import { certificateData } from "../data/certificateData.js";
 
-export function loadSkills(){
-    const container = document.querySelector(".certificate__container");
-  
-    container.innerHTML = certficateData.map((certificateData   , index) => `
-      <div class="certificate-card" style="transition-delay:${index * 0.1}s">
-        
-        <div class="certificate-card-img">
-          <img src="${skill.image}" alt="${skill.title}">
-        </div>
-  
-        <div class="certificate-card-overlay">
-          <div class="certificate-card-content">
-  
-            <div class="certificate-card-title">
-              <h2>${skill.title}</h2>
-            </div>
-  
-  
-            <div class="certificate-card-details">
-              <div class="certificate-card-divider"></div>
-              <ul class="certificate-card-list">
-                ${skill.items.map(certficateData => `<li>${certficateData}</li>`).join("")}
-              </ul>
-            </div>
-  
-          </div>
-        </div>
-  
+export function loadCertificate() {
+  const container = document.querySelector(".certificate-container");
+
+  if (!container) return;
+
+  container.innerHTML = certificateData.map((cert, index) => `
+    <div class="certificate-card reveal" style="transition-delay:${index * 0.08}s">
+
+      <!-- IMAGE -->
+      <div class="certificate-img">
+        <img src="${cert.image}" alt="${cert.title}">
       </div>
-    `).join("");
-  }
+
+      <!-- OVERLAY CONTENT -->
+      <div class="certificate-overlay">
+
+        <!-- ALWAYS VISIBLE -->
+        <div class="certificate-header">
+          <h2 class="certificate-title-text">${cert.title}</h2>
+          <p class="certificate-date">${cert.date}</p>
+        </div>
+
+        <!-- HOVER DESCRIPTION -->
+        <div class="certificate-description">
+          <ul>
+            ${cert.items.map(item => `<li>${item}</li>`).join("")}
+          </ul>
+        </div>
+
+        <!-- BUTTON -->
+        <a class="certificate-btn" href="${cert.file}" target="_blank">
+          View Certificate
+        </a>
+
+      </div>
+
+    </div>
+  `).join("");
+}

@@ -1,11 +1,13 @@
 import { initProjects } from "../js/pages/projects.js";
 // import { initContactForm } from "./contact.js";
 import { loadSkills } from "../js/pages/skill.js";
+import { loadCertificate } from "../js/pages/certificate.js";
 
 
-//Skill Function
+//Initialization
 document.addEventListener("DOMContentLoaded", () => {
   loadSkills();
+  loadCertificate();
   initCinematicScroll();
   initSmoothNavigation();
   initActiveNavHighlight();
@@ -136,9 +138,4 @@ onReady(() => {
   initActiveNavHighlight();
   initNavbarScrollEffect();
 
-});
-
-//Project Function
-document.addEventListener("DOMContentLoaded", ()=>{
-  initProjects();
 });
