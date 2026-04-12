@@ -1,100 +1,98 @@
-export function initProjectsSlider() {
-    const projectsSection = document.querySelector(".projects");
+import { projects } from "../data/projectData.js";
 
-    if (!projectsSection) return;
+const wrapper = document.getElementById("cardWrapper");
+const indicatorBar = document.getElementById("indicatorBar");
 
-    const track = projectsSection.querySelector(".projects__track");
-    const viewport = projectsSection.querySelector(".projects__viewport");
-    const slides = Array.from(projectsSection.querySelectorAll(".projects__slide"));
-    const prevButton = projectsSection.querySelector(".projects__arrow--left");
-    const nextButton = projectsSection.querySelector(".projects__arrow--right");
-    const indicators = Array.from(projectsSection.querySelectorAll(".projects__indicator"));
+let index = 0;
+let isAnimating = false;
 
-    if (!track || !viewport || slides.length === 0 || !prevButton || !nextButton) return;
+export function initProjects(){
+    render();
+    renderIndicators();
+    attachEvents();
+}
 
-    const firstClone = slides[0].cloneNode(true);
-    const lastClone = slides[slides.length - 1].cloneNode(true);
+/* RENDER CARD */
+function render(){
 
-    firstClone.classList.add("is-clone");
-    lastClone.classList.add("is-clone");
+    const p = projects[index];
 
-    track.appendChild(firstClone);
-    track.insertBefore(lastClone, slides[0]);
+    wrapper.innerHTML = `
+        <article class="project-card">
 
-    const allSlides = Array.from(track.querySelectorAll(".projects__slide"));
+            <div class="project-card__image">
+                <img src="${p.image}" alt="${p.title}">
+            </div>
 
-    let currentIndex = 1;
-    let isAnimating = false;
+            <div class="project-card__overlay">
+                <div class="project-card__content">
 
-    function getSlideWidth() {
-        return viewport.clientWidth;
-    }
+                    <h2 class="project-card__title">${p.title}</h2>
+                    <h3 class="project-card__subtitle">${p.subtitle}</h3>
 
-    function updateTrack(animate = true) {
-        const slideWidth = getSlideWidth();
-        track.style.transition = animate
-            ? "transform 0.7s cubic-bezier(0.22, 1, 0.36, 1)"
-            : "none";
-        track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-    }
+                    <div class="project-card__meta">
+                        <span>${p.year}</span>
+                    </div>
 
-    function getRealIndex() {
-        if (currentIndex === 0) return slides.length - 1;
-        if (currentIndex === allSlides.length - 1) return 0;
-        return currentIndex - 1;
-    }
+                    <span class="project-card__tag">${p.tag}</span>
 
-    function updateIndicators() {
-        const realIndex = getRealIndex();
+                    <div class="project-card__details">
+                        <ul class="project-card__list">
+                            ${p.description.map(d => `<li>${d}</li>`).join("")}
+                        </ul>
 
-        indicators.forEach((indicator, index) => {
-            indicator.classList.toggle("is-active", index === realIndex);
-        });
-    }
+                        ${p.link ? `
+                            <a class="project-card__button" href="${p.link}" target="_blank">
+                                View Project
+                            </a>
+                        ` : ""}
+                    </div>
 
-    function moveToSlide(index) {
-        if (isAnimating) return;
-        isAnimating = true;
-        currentIndex = index;
-        updateTrack(true);
-        updateIndicators();
-    }
+                </div>
+            </div>
 
-    function handleNext() {
-        moveToSlide(currentIndex + 1);
-    }
+        </article>
+    `;
 
-    function handlePrev() {
-        moveToSlide(currentIndex - 1);
-    }
-
-    nextButton.addEventListener("click", handleNext);
-    prevButton.addEventListener("click", handlePrev);
-
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener("click", () => {
-            moveToSlide(index + 1);
-        });
-    });
-
-    track.addEventListener("transitionend", () => {
-        if (allSlides[currentIndex].classList.contains("is-clone")) {
-            if (currentIndex === allSlides.length - 1) {
-                currentIndex = 1;
-            } else if (currentIndex === 0) {
-                currentIndex = slides.length;
-            }
-            updateTrack(false);
-        }
-
-        updateIndicators();
-        isAnimating = false;
-    });
-
-    window.addEventListener("resize", () => {
-        updateTrack(false);
-    });
-
-    updateTrack(false);
     updateIndicators();
+}
+
+/* INDICATORS */
+function renderIndicators(){
+    indicatorBar.innerHTML = projects.map((_, i) => `
+        <div class="project-indicator ${i === 0 ? "active" : ""}"></div>
+    `).join("");
+}
+
+function updateIndicators(){
+    document.querySelectorAll(".project-indicator")
+        .forEach((el, i) => {
+            el.classList.toggle("active", i === index);
+        });
+}
+
+/* EVENTS */
+function attachEvents(){
+
+    renderIndicators();
+
+    document.getElementById("nextBtn").onclick = () => {
+        if(isAnimating) return;
+        isAnimating = true;
+
+        index = (index + 1) % projects.length;
+        render();
+
+        setTimeout(()=> isAnimating = false, 300);
+    };
+
+    document.getElementById("prevBtn").onclick = () => {
+        if(isAnimating) return;
+        isAnimating = true;
+
+        index = (index - 1 + projects.length) % projects.length;
+        render();
+
+        setTimeout(()=> isAnimating = false, 300);
+    };
 }

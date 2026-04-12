@@ -1,7 +1,9 @@
-import { initProjectsSlider } from "../js/pages/projects.js";
+import { initProjects } from "../js/pages/projects.js";
 // import { initContactForm } from "./contact.js";
 import { loadSkills } from "../js/pages/skill.js";
 
+
+//Skill Function
 document.addEventListener("DOMContentLoaded", () => {
   loadSkills();
   initScrollAnimation();
@@ -21,7 +23,7 @@ function initScrollAnimation(){
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    initProjectsSlider();
-    // initContactForm();
+//Project Function
+document.addEventListener("DOMContentLoaded", ()=>{
+  initProjects();
 });
