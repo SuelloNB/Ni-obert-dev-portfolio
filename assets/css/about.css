@@ -1,0 +1,144 @@
+.about-section{
+    max-width: 1200px;
+    margin: auto;
+    padding: 6rem 2rem;   
+}
+
+.about-title{
+    font-size: var(--headings);
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+/* TOP SECTION */
+.about-top {
+    display: grid;
+    grid-template-columns: repeat(2, 720px);
+    gap: 5rem;
+    align-items: center;
+    margin-bottom: 4rem;
+    justify-content: center;
+    display: grid;
+}
+
+.about-img img{
+    border-radius: 20px;
+}
+
+.sub-heading{
+    color: var(--cool-gray);
+    font-size: var(--paragraph);
+}
+
+.main-heading{
+    font-size: var(--sub-headings-primary);
+    color: var(--soft-white);
+}
+
+.about-description{
+    font-size: var(--paragraph);
+    color: var(--soft-white);
+    margin-top: 12px;
+}
+
+.contact-btn{
+  margin-top: 20px;
+  display: inline-block;
+  padding: 10px 10px;
+  border-radius: 10px;
+  text-align: center;
+
+  background: rgba(255,255,255,0.1);
+  color: white;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.4s ease;
+}
+
+.contact-btn:hover {
+    background: white;
+    color: black;
+    transition: all 0.4s ease;
+  }
+/* BOTTOM SECTION */
+.about-bottom {
+    display: grid;
+    grid-template-columns: repeat(2, 720px);
+    gap: 5rem;
+    justify-content: center;
+}
+
+/* SKILL BAR */
+.skill-metrics-title{
+    font-size: var(--sub-headings-primary);
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.skill-metrics-description{
+    font-size: var(--paragraph);
+    text-align: left;
+    margin-bottom: 8px;
+}
+
+.skill-list-name{
+    font-size: var(--lists);
+    font-weight: 500;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: #2a2a2a;
+    border-radius: 20px;
+    overflow: visible;
+    margin: 5px 0px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0;
+    background: var(--cool-gray);
+    transition: width 1s ease;
+    position: relative;
+}
+
+.skill-list-percentage{
+    position: absolute;
+    right: 0;
+    top: -22px;
+    transform: translateX(50%);
+    font-size: 12px;
+    color: white;
+    white-space: nowrap;
+    text-shadow: 0 0 2px var(--soft-white);
+}
+
+/* METRICS */
+.metric-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 320px);
+    gap: 1.5rem;
+    justify-content: center;
+    border-left: 1px solid rgba(255, 255, 255, 0.08);;
+}
+
+.metric-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.metric-value{
+    font-size: var(--sub-headings-primary);
+    color: var(--soft-white);
+    font-weight: 700;
+    text-shadow: 0 0 2px var(--soft-white);
+}
+
+.metric-title{
+    color: var(--cool-gray);
+
+}

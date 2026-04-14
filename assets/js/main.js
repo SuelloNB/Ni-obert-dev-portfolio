@@ -2,6 +2,7 @@ import { initProjects } from "../js/pages/projects.js";
 // import { initContactForm } from "./contact.js";
 import { loadSkills } from "../js/pages/skill.js";
 import { loadCertificate } from "../js/pages/certificate.js";
+import { loadAbout } from "../js/pages/about.js";
 
 
 /* =========================
@@ -10,6 +11,7 @@ import { loadCertificate } from "../js/pages/certificate.js";
 document.addEventListener("DOMContentLoaded", () => {
   loadSkills();
   loadCertificate();
+  loadAbout();
 
   initCinematicScroll();
   initSmoothNavigation();
