@@ -88,18 +88,18 @@
 
 .progress-bar {
     width: 100%;
-    height: 10px;
+    height: 8px;
     background: #2a2a2a;
-    border-radius: 20px;
+    border-radius: 4px;
     overflow: visible;
-    margin: 5px 0px;
+    margin: 10px;
 }
 
 .progress-fill {
     height: 100%;
     width: 0;
     background: var(--cool-gray);
-    transition: width 1s ease;
+    transition: width 1.5s cubic-bezier(0.17, 0.67, 0.83, 0.67);
     position: relative;
 }
 
@@ -109,7 +109,7 @@
     top: -22px;
     transform: translateX(50%);
     font-size: 12px;
-    color: white;
+    color: var(--soft-white);
     white-space: nowrap;
     text-shadow: 0 0 2px var(--soft-white);
 }

@@ -7,38 +7,27 @@ export function loadAbout() {
 
 // ================= SKILLS =================
 function loadSkills() {
-  const skillContainer = document.querySelector(".skill-list-container");
-  skillContainer.innerHTML = "";
+    const skillContainer = document.querySelector(".skill-list-container");
+    if (!skillContainer) return; // Safety check
+    skillContainer.innerHTML = "";
 
-  aboutData.skills.forEach((skill) => {
-    const skillItem = document.createElement("div");
-    skillItem.classList.add("skill-item");
+    aboutData.skills.forEach((skill) => {
+        const skillItem = document.createElement("div");
+        skillItem.classList.add("skill-item");
 
-    skillItem.innerHTML = `
-    <div class="skill-info">
-        <span class="skill-list-name">${skill.name}</span>
-    </div>
-    <div class="progress-bar">
-        <div class="progress-fill">
-            <span class="skill-list-percentage">${skill.percentage}%</span>
+        skillItem.innerHTML = `
+        <div class="skill-info">
+            <span class="skill-list-name">${skill.name}</span>
         </div>
-    </div>
-    `;
+        <div class="progress-bar">
+            <div class="progress-fill" data-value="${skill.percentage}" style="width: 0%;">
+                <span class="skill-list-percentage">${skill.percentage}%</span>
+            </div>
+        </div>
+        `;
 
-    skillContainer.appendChild(skillItem);
-
-    // Animate after render
-    const fill = skillItem.querySelector(".progress-fill");
-    setTimeout(() => {
-        fill.style.width = skill.percentage + "%";
-      
-        const percentLabel = skillItem.querySelector(".skill-list-percentage");
-      
-        // move label with the bar
-        percentLabel.style.left = skill.percentage + "%";
-      }, 100);
-  });
-  
+        skillContainer.appendChild(skillItem);
+    });
 }
 
 // ================= METRICS =================

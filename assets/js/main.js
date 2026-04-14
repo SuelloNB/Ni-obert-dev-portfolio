@@ -17,7 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initSmoothNavigation();
   initActiveNavHighlight();
   initNavbarScrollEffect();
-  initSkillObserver(); // IMPORTANT FIX
+  initSkillObserver();
+  initSkillBarAnimation();
 
   initProjects();
 });
@@ -34,8 +35,8 @@ function initCinematicScroll() {
     .projects,
     .certificate-card,
     .education-section,
-    .about-section
-
+    .about-section,
+    .about-bottom
   `);
 
   const observer = new IntersectionObserver((entries) => {
@@ -119,4 +120,40 @@ function initNavbarScrollEffect() {
   window.addEventListener("scroll", () => {
     header.classList.toggle("scrolled", window.scrollY > 20);
   });
+}
+
+
+/*===========================
+  SKILLBAR ANIMATION
+============================*/
+function initSkillBarAnimation() {
+  // Target the section that contains the skills
+  const aboutSection = document.querySelector(".about-bottom");
+
+  if (!aboutSection) return;
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+
+      // Find all fills within this section
+      const bars = entry.target.querySelectorAll(".progress-fill");
+
+      bars.forEach((bar, index) => {
+        const value = bar.getAttribute("data-value");
+        
+        // Staggered grow effect
+        setTimeout(() => {
+          bar.style.width = value + "%";
+          
+          // Optional: if you want to animate the number counting up,
+          // you would add that logic here.
+        }, index * 150); 
+      });
+
+      obs.unobserve(entry.target); // Disable after running once
+    });
+  }, { threshold: 0.3 }); // Triggers when 30% of the section is visible
+
+  observer.observe(aboutSection);
 }
