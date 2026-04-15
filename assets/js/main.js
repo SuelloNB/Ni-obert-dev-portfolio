@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initSkillObserver();
   initSkillBarAnimation();
   initContactForm();
-
+  initFooterReveal();
   initProjects();
 });
 
@@ -163,4 +163,21 @@ function initSkillBarAnimation() {
   }, { threshold: 0.3 }); // Triggers when 30% of the section is visible
 
   observer.observe(aboutSection);
+}
+
+/*======================
+  Footer Animation
+=======================*/
+function initFooterReveal() {
+  const footer = document.querySelector(".footer");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        footer.classList.add("show");
+      }
+    });
+  }, { threshold: 0.2 });
+
+  if (footer) observer.observe(footer);
 }

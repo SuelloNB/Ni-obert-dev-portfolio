@@ -72,3 +72,14 @@
     font-size: 0.85rem;
     color: var(--cool-gray);
   }
+
+.footer {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.footer.show {
+  opacity: 1;
+  transform: translateY(0);
+}
