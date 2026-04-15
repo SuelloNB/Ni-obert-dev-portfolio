@@ -1,5 +1,5 @@
 .about-section{
-    max-width: 1200px;
+    max-width: 1400px;
     margin: auto;
     padding: 6rem 2rem;   
 }
@@ -16,7 +16,7 @@
     grid-template-columns: repeat(2, 720px);
     gap: 5rem;
     align-items: center;
-    margin-bottom: 4rem;
+    margin-bottom: 8rem;
     justify-content: center;
 }
 
@@ -32,12 +32,14 @@
 .main-heading{
     font-size: var(--sub-headings-primary);
     color: var(--soft-white);
+    text-align: left;
 }
 
-.about-description p{
+.about-description{
     font-size: var(--paragraphs);
     color: var(--soft-white);
     margin-top: 20px;
+    text-align: left;
 }
 
 .contact-btn{
@@ -65,24 +67,23 @@
     grid-template-columns: repeat(2, 720px);
     gap: 5rem;
     justify-content: center;
+    margin-bottom: 8rem;
 }
 
 /* SKILL BAR */
 .skill-metrics-title{
     font-size: var(--sub-headings-primary);
-    font-weight: 700;
     margin-bottom: 8px;
 }
 
 .skill-metrics-description{
     font-size: var(--paragraph);
     text-align: left;
-    margin-bottom: 8px;
+    margin-bottom: 20px;
 }
 
 .skill-list-name{
     font-size: var(--lists);
-    font-weight: 500;
 }
 
 .progress-bar {
@@ -133,11 +134,56 @@
 .metric-value{
     font-size: var(--sub-headings-primary);
     color: var(--soft-white);
-    font-weight: 700;
     text-shadow: 0 0 2px var(--soft-white);
 }
 
 .metric-title{
     color: var(--cool-gray);
 
+}
+
+/*Strength Section*/
+.strength-container{
+    display: grid;
+    grid-template-columns: repeat(2, 720px);
+    gap: 5rem;
+    justify-content: center;
+    margin-bottom: 8rem;
+    align-items: center;
+}
+
+.strength-title{
+    font-size: var(--sub-headings-primary);
+    margin-bottom: 20px;
+}
+
+.strength-description{
+    font-size: var(--paragraph);
+}
+
+.strength-img img{
+    border-radius: 20px;
+}
+
+/*Career Section*/
+.career-container{
+    display: grid;
+    grid-template-columns: repeat(2, 720px);
+    gap: 5rem;
+    justify-content: center;
+    margin-bottom: 8rem;
+    align-items: center; 
+}
+
+.career-title{
+    font-size: var(--sub-headings-primary);
+    margin-bottom: 20px;
+}
+
+.career-description{
+    font-size: var(--paragraph);
+}
+
+.career-img img{
+    border-radius: 20px;
 }
