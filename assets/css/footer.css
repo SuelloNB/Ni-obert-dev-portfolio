@@ -1,0 +1,74 @@
+.footer {
+    margin-top: 6rem;
+    padding: 4rem 2rem 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: var(--soft-white);
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    justify-content: center;
+  }
+  
+  /* BRAND */
+  .footer-brand img{
+    border-radius: 999px;
+    height: 50px;
+    width: 50px;
+    margin: auto;
+  }
+  
+  .footer-brand p {
+    color: var(--cool-gray);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  /* HEADINGS */
+  .footer h4 {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  /* LINKS */
+  .footer a {
+    display: block;
+    color: var(--cool-gray);
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+  
+  .footer a:hover {
+    color: white;
+    transform: translateX(5px);
+  }
+  
+  /* CONTACT TEXT */
+  .footer-contact p {
+    font-size: 0.9rem;
+    color: var(--cool-gray);
+    margin-bottom: 0.4rem;
+    text-align: center;
+  }
+  
+  /* BOTTOM */
+  .footer-bottom {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--cool-gray);
+  }
