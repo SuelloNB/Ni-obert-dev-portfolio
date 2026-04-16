@@ -190,20 +190,20 @@
     }
 
     .contact-form {
-        padding: 2rem 1.25rem; /* More space for inputs, less for container edges */
+        padding: 2rem 1.25rem; 
         border-radius: 20px;
-        background: transparent; /* Cleaner look on small screens */
+        background: transparent; 
         border: none;
         border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    .contact-info-grid {
-        grid-template-columns: 1fr;
+    .send-btn {
+        width: 100%; 
+        text-align: center;
     }
 
-    .send-btn {
-        width: 100%; /* Full width button is better for thumb-reach */
-        text-align: center;
+    .contact-info-item{
+        display: grid;
     }
 
     .contact-heading {
