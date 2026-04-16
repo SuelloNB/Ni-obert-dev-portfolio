@@ -34,31 +34,18 @@ The site includes the following sections:
 ## Project Structure
 
 ```bash
-Ninobert-dev-portfolio/
 ├── assets/
 │   ├── css/
-│   │   ├── about.css
-│   │   ├── components.css
-│   │   ├── contact.css
-│   │   ├── education.css
-│   │   ├── experience.css
-│   │   ├── global.css
-│   │   ├── home.css
-│   │   ├── main.css
-│   │   ├── projects.css
-│   │   ├── reset.css
-│   │   ├── skill.css
-│   │   └── variables.css
-│   ├── files/
-│   ├── images/
-│   └── js/
-│       ├── main.js
-│       └── pages/
-│           ├── contact.js
-│           └── projects.js
-├── about.html
-├── index.html
-├── LICENSE
+│   │   ├── global.css        # Reset, typography, and theme variables
+│   │   ├── components.css    # Shared UI components (Nav, Header)
+│   │   ├── home.css          # Hero section logic
+│   │   ├── projects.css      # Custom carousel & card styles
+│   │   ├── skill.css         # Glassmorphism grid system
+│   │   └── ...               # Modular section styles
+│   ├── js/
+│   │   └── main.js           # Theme toggling & scroll animations
+│   └── images/               # Optimized asset storage
+├── index.html                # Main entry point
 └── README.md
 ```
 
