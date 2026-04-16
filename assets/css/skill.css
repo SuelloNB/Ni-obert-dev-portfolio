@@ -1,157 +1,148 @@
-.skill-section{
+/* =========================
+   SKILLS SECTION - PREMIUM REFACTOR
+========================= */
+.skill-section {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 8rem 2rem;
-    color: var(--soft-white);
+    padding: var(--space-xl) 1.5rem;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.skill-title{
+.skill-title {
     text-align: center;
-    font-size: var(--headings);
-    margin-bottom: 4rem;
+    font-size: var(--fs-h1); 
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    margin-bottom: var(--space-lg);
+    background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.4) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-/* GRID */
-.skill-container{
+/* 1. Fluid Grid System */
+.skill-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Automatically creates columns based on available space */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2.5rem;
-    justify-content: center;
+    width: 100%;
 }
 
-/* CARD */
-.skill-card{
+/* 2. The Glass Card Design */
+.skill-card {
     position: relative;
-    height: 520px;
-    border-radius: 28px;
+    height: 480px;
+    border-radius: 32px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     overflow: hidden;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    background: var(--glass-bg);
-    border: 1px solid var(--border-subtle);
-    backdrop-filter: blur(12px);
-
-    opacity: 0;
-    transform: translateY(40px);
-
-    transition:
-        transform 0.5s ease,
-        box-shadow 0.5s ease,
-        opacity 0.6s ease;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.skill-card.is-visible{
-    opacity: 1;
-    transform: translateY(0);
+.skill-card:hover {
+    transform: translateY(-12px);
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
 }
 
-.skill-card:hover{
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: var(--shadow-soft);
-}
-
-/* IMAGE */
-.skill-card-img{
+/* Image Background Logic */
+.skill-card-img {
     position: absolute;
     inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
 }
 
-.skill-card-img img{
+.skill-card-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.8s ease, filter 0.5s ease;
-    filter: brightness(0.85);
+    opacity: 0.4;
+    filter: grayscale(100%) contrast(1.1);
+    transition: all 0.8s ease;
 }
 
-.skill-card:hover .skill-card-img img{
-    transform: scale(1.1);
-    filter: brightness(1);
+.skill-card:hover .skill-card-img img {
+    filter: grayscale(0%) contrast(1);
+    opacity: 0.25;
+    transform: scale(1.08);
 }
 
-/* OVERLAY */
-.skill-card-overlay{
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: flex-end;
-
-    background: linear-gradient(
-        to top,
-        rgba(0,0,0,0.9) 0%,
-        rgba(0,0,0,0.6) 40%,
-        rgba(0,0,0,0.2) 75%,
-        transparent 100%
-    );
-}
-
-/* CONTENT */
-.skill-card-content{
-    width: 100%;
-    padding: 2rem;
-    text-align: center;
-}
-
-/* TEXT */
-.skill-card-content h2{
-    font-size: 2rem;
-    font-weight: 600;
-}
-
-.skill-card-tag{
-    font-size: var(--paragraphs);
-    color: var(--soft-white);
-    display: inline-block;
-    margin: 1rem;
-    padding: 0.35rem 0.9rem;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-/* Overlay hidden by default */
+/* 3. Content Overlay & Hierarchy */
 .skill-card-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.86);
-
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    padding: 2.5rem;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 20%, transparent 100%);
+}
 
+.skill-card-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--cool-gray);
+    margin-bottom: 0.75rem;
+}
+
+.skill-card-content h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1.5rem;
+}
+
+/* The Skill Tags List */
+.skill-card-content ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    /* Reveal animation on hover */
     opacity: 0;
-    transition: all 0.4s ease;
+    transform: translateY(15px);
+    transition: all 0.5s ease 0.1s;
 }
 
-/* Show overlay on hover */
-.skill-card:hover .skill-card-overlay {
+.skill-card:hover .skill-card-content ul {
     opacity: 1;
-}
-
-/* Content animation */
-.skill-card-content {
-    transform: translateY(20px);
-    transition: all 0.4s ease;
-}
-
-/* Animate content in */
-.skill-card:hover .skill-card-content {
     transform: translateY(0);
 }
 
-/* List items animation */
-.skill-card-content li {
-    opacity: 0;
-    transform: translateX(-10px);
-    transition: all 0.3s ease;
-    list-style: none;
-    margin: 5px;
-    font-size: var(--lists);
+.skill-card-content ul li {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.9rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    color: var(--light-gray);
 }
 
-/* Show list on hover */
-.skill-card:hover .skill-card-content li {
-    opacity: 1;
-    transform: translateX(6px);
+/* =========================
+   RESPONSIVENESS (Mobile/Tablet)
+========================= */
+@media (max-width: 1024px) {
+    .skill-card { height: 400px; }
+}
+
+@media (max-width: 768px) {
+    .skill-section { padding: var(--space-lg) 1rem; }
+    
+    .skill-card-content ul {
+        opacity: 1;
+        transform: none;
+    }
+    
+    .skill-container {
+        grid-template-columns: 1fr; /* Stack on mobile for better readability */
+    }
 }

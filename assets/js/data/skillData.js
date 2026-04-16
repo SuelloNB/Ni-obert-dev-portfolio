@@ -5,11 +5,8 @@ export const skillsData = [
       image: "./assets/images/skills/laptop-img.jpg",
       items: [
         "Problem Solving",
-        "Data Structures & Algorithms",
-        "Object-Oriented Programming",
         "Debugging & Troubleshooting",
         "Git Workflows",
-        "API Integration",
         "System Design Thinking"
       ]
     },
@@ -30,7 +27,6 @@ export const skillsData = [
       tag: "Workflow",
       image: "./assets/images/skills/user-interface-img.jpg",
       items: [
-        "Figma (Wireframing & Prototyping)",
         "UI/UX Design Principles",
         "User-Centered Design",
         "Accessibility (basic awareness)",
@@ -54,10 +50,8 @@ export const skillsData = [
         image: "./assets/images/skills/engineering-practice.jpg",
         items: [
           "Event-Driven Programming",
-          "DOM Manipulation",
-          "State Management",
-          "Responsive & Mobile-First Development",
-          "Performance Optimization (basic)"
+          "Responsive Development",
+          "Performance Optimization"
         ]
       },
       {
@@ -65,11 +59,10 @@ export const skillsData = [
         tag: "Applied",
         image: "./assets/images/skills/applied-skills.jpg",
         items: [
-          "Building real-world web applications",
-          "CRUD Operations (Create, Read, Update, Delete)",
+          "CRUD Operations",
           "UI Component Design",
           "Map Integration",
-          "Hardware + Software Integration (ESP32 / Raspberry Pi experience)"
+          "Hardware + Software Integration"
         ]
       }
   ];
