@@ -64,6 +64,90 @@
   font-size: var(--fs-body);
   line-height: 1.6;
 }
+
+/*icons*/
+.icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    justify-content: center;
+}
+
+.icons a{
+    text-decoration: none;
+}
+
+.btn-icon{
+    width: 80px;
+    height: 80px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--pure-black);
+    border: 1px solid var(--charcoal);
+    outline: none;
+    box-shadow: none;
+    -webkit-tap-highlight-color: transparent;
+    transition:
+        transform 0.25s ease,
+        background-color 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.btn-icon svg{
+    fill: var(--cool-gray);
+    transition: fill 0.25s ease, transform 0.25s ease;
+}
+
+.btn-icon:hover{
+    transform: translateY(-6px) scale(1.04);
+    background: var(--soft-white);
+    border-color: var(--charcoal);
+}
+
+.btn-icon:hover svg{
+    fill: var(--pure-black);
+    transform: scale(1.08);
+}
+
+.btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    max-width: 100%;
+    margin-top: var(--space-xs);
+    padding: 0.9rem 1.6rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: var(--buttons);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.btn-primary{
+    background: transparent;
+    color: var(--cool-gray);
+    border: 1px solid var(--charcoal);
+}
+
+.btn:hover{
+    box-shadow: var(--shadow-light);
+    transform: translateY(-3px);
+}
+
+.btn-primary:hover{
+    border-color: var(--light-gray);
+    color: var(--soft-white);
+}
+
+
   /* TABLET */
 @media (min-width: 768px) {
   .hero {

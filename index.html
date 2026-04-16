@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Portfolio</title>
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,15 @@
     <header class="site-header">
         <section class="header">
             <img src="assets/images/profile/circle-avatar.png" alt="Profile picture of the author.">
-            <nav class="navbar">
+        
+            <!-- MOBILE TOGGLE -->
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        
+            <nav class="navbar" id="navbar">
                 <ul>
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#experience">Experience</a></li>

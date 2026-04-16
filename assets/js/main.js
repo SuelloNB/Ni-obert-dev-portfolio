@@ -98,22 +98,35 @@ function initSmoothNavigation() {
 }
 
 /* =========================
-   ACTIVE NAV
+   ACTIVE NAV - REFINED
 ========================= */
 function initActiveNavHighlight() {
-  const sections = document.querySelectorAll("section");
+  const sections = document.querySelectorAll("section[id]"); // Only targets sections with IDs
   const links = document.querySelectorAll(".navbar a");
+
+  const observerOptions = {
+    // This margin ensures the 'active' state switches when the section 
+    // is roughly in the middle of the screen.
+    rootMargin: "-10% 0px -70% 0px", 
+    threshold: 0
+  };
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
+        const id = entry.target.getAttribute("id");
+        
+        // Remove active from all
         links.forEach(link => link.classList.remove("active"));
-        document
-          .querySelector(`.navbar a[href="#${entry.target.id}"]`)
-          ?.classList.add("active");
+        
+        // Add active to the current visible section link
+        const activeLink = document.querySelector(`.navbar a[href="#${id}"]`);
+        if (activeLink) {
+          activeLink.classList.add("active");
+        }
       }
     });
-  }, { threshold: 0.5 });
+  }, observerOptions);
 
   sections.forEach(sec => observer.observe(sec));
 }
@@ -163,6 +176,35 @@ function initSkillBarAnimation() {
   }, { threshold: 0.3 }); // Triggers when 30% of the section is visible
 
   observer.observe(aboutSection);
+}
+
+/*======================
+  Navbar Logic
+=======================*/
+const navToggle = document.getElementById("navToggle");
+const navbar = document.getElementById("navbar");
+const navLinks = document.querySelectorAll(".navbar ul li");
+
+if (navToggle && navbar) {
+    // Assign index for staggered animation
+    navLinks.forEach((li, index) => {
+        li.style.setProperty('--i', index + 1);
+    });
+
+    navToggle.addEventListener("click", () => {
+        navbar.classList.toggle("active");
+        navToggle.classList.toggle("active");
+        document.body.classList.toggle("no-scroll");
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll(".navbar a").forEach(link => {
+        link.addEventListener("click", () => {
+            navbar.classList.remove("active");
+            navToggle.classList.remove("active");
+            document.body.classList.remove("no-scroll");
+        });
+    });
 }
 
 /*======================
