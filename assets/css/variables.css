@@ -25,4 +25,16 @@
 
     /* Layout */
     --max-width: 1200px;
+
+    /* Spacing system */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 6rem;
+
+    /* Fluid typography */
+    --fs-h1: clamp(2rem, 5vw, 3rem);
+    --fs-h2: clamp(1.5rem, 4vw, 2.2rem);
+    --fs-body: clamp(0.9rem, 2vw, 1.1rem);
 }

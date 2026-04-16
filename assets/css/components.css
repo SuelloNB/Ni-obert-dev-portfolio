@@ -65,12 +65,11 @@
     width: calc(100% - 32px);
 }
 
-.icons{
+.icons {
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
-    gap: 1rem;
-    margin: 1.25rem 0;
+    gap: var(--space-sm);
+    justify-content: center;
 }
 
 .icons a{
@@ -116,8 +115,10 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 180px;
-    padding: 1.1rem 2rem;
+    width: fit-content;
+    max-width: 100%;
+    margin-top: var(--space-xs);
+    padding: 0.9rem 1.6rem;
     border-radius: 999px;
     font-weight: 700;
     font-size: var(--buttons);
@@ -143,4 +144,11 @@
 .btn-primary:hover{
     border-color: var(--light-gray);
     color: var(--soft-white);
+}
+
+/* desktop alignment */
+@media (min-width: 768px) {
+  .icons {
+    justify-content: flex-start;
+  }
 }

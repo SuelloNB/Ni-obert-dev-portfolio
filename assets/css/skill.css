@@ -15,7 +15,7 @@
 /* GRID */
 .skill-container{
     display: grid;
-    grid-template-columns: repeat(3, 520px);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2.5rem;
     justify-content: center;
 }
@@ -26,7 +26,8 @@
     height: 520px;
     border-radius: 28px;
     overflow: hidden;
-
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     background: var(--glass-bg);
     border: 1px solid var(--border-subtle);
     backdrop-filter: blur(12px);
