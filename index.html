@@ -104,13 +104,26 @@
     <!-- Projects Section -->
     <section class="projects" id="projects">
         <h1 class="projects__title">Projects</h1>
+        
         <div class="projects__viewer">
-            <button class="nav-arrow nav-arrow--left" id="prevBtn">←</button>
-            <div class="projects__card-wrapper" id="cardWrapper"></div>
-            <button class="nav-arrow nav-arrow--right" id="nextBtn">→</button>
+            <button class="nav-arrow prev" id="prevBtn" aria-label="Previous Project">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+    
+            <div class="projects__card-wrapper" id="cardWrapper">
+                </div>
+    
+            <button class="nav-arrow next" id="nextBtn" aria-label="Next Project">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
         </div>
-        <!-- INDICATOR BAR -->
-        <div class="projects__indicator-bar" id="indicatorBar"></div>   
+    
+        <div class="mobile-swipe-indicator" id="mobileHint">
+            <div class="hint-line"></div>
+            <span>Swipe to Explore</span>
+        </div>
+    
+        <div class="projects__indicators" id="indicatorBar"></div>
     </section>
 
     <!--Certificates Section-->
