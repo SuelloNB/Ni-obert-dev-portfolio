@@ -1,10 +1,10 @@
-.about-section{
+.about-section {
     max-width: 1400px;
     margin: auto;
-    padding: 6rem 2rem;   
+    padding: var(--space-xl) var(--space-md); /* Using your variables */
 }
 
-.about-title{
+.about-title {
     font-size: var(--headings);
     margin-bottom: 50px;
     text-align: center;
@@ -13,60 +13,68 @@
 /* TOP SECTION */
 .about-top {
     display: grid;
-    grid-template-columns: repeat(2, 720px);
-    gap: 5rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
     align-items: center;
     margin-bottom: 8rem;
-    justify-content: center;
 }
 
-.about-img img{
+.about-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Keeps text centered relative to image height */
+    align-items: flex-start; /* Ensures everything is left-aligned */
+}
+
+.about-img img {
     border-radius: 20px;
+    width: 100%; /* Ensures image scales with grid */
+    height: auto;
+    display: block;
 }
 
-.sub-heading{
+.sub-heading {
     color: var(--cool-gray);
     font-size: var(--paragraph);
+    display: block;
 }
 
-.main-heading{
+.main-heading {
     font-size: var(--sub-headings-primary);
     color: var(--soft-white);
     text-align: left;
 }
 
-.about-description{
+.about-description {
     font-size: var(--paragraphs);
     color: var(--soft-white);
-    margin-top: 20px;
     text-align: left;
 }
 
-.contact-btn{
-  margin-top: 20px;
-  display: inline-block;
-  padding: 10px 10px;
-  border-radius: 10px;
-  text-align: center;
-
-  background: rgba(255,255,255,0.1);
-  color: white;
-  text-decoration: none;
-  border: 1px solid rgba(255,255,255,0.2);
-  transition: all 0.4s ease;
+.contact-btn {
+    margin-top: 1.5rem; /* Increased from 2px to create a clean break from the text */
+    display: inline-block;
+    padding: 12px 24px; /* Improved padding for a more professional look */
+    border-radius: 10px;
+    text-align: center;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: all 0.4s ease;
+    cursor: pointer;
 }
 
 .contact-btn:hover {
     background: white;
     color: black;
-    transition: all 0.4s ease;
-  }
+    transform: translateY(-2px); /* Subtle lift effect on hover */
+}
 /* BOTTOM SECTION */
 .about-bottom {
     display: grid;
-    grid-template-columns: repeat(2, 720px);
-    gap: 5rem;
-    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
     margin-bottom: 8rem;
 }
 
@@ -117,12 +125,10 @@
 /* METRICS */
 .metric-grid {
     display: grid;
-    grid-template-columns: repeat(2, 320px);
+    grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
-    justify-content: center;
-    border-left: 1px solid rgba(255, 255, 255, 0.08);;
+    border-left: 1px solid var(--border-subtle);
 }
-
 .metric-card {
     text-align: center;
     display: flex;
@@ -143,11 +149,11 @@
 }
 
 /*Strength Section*/
-.strength-container{
+.strength-container, 
+.career-container {
     display: grid;
-    grid-template-columns: repeat(2, 720px);
-    gap: 5rem;
-    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
     margin-bottom: 8rem;
     align-items: center;
 }
@@ -161,18 +167,11 @@
     font-size: var(--paragraph);
 }
 
-.strength-img img{
+.strength-img img,
+.career-img img {
     border-radius: 20px;
-}
-
-/*Career Section*/
-.career-container{
-    display: grid;
-    grid-template-columns: repeat(2, 720px);
-    gap: 5rem;
-    justify-content: center;
-    margin-bottom: 8rem;
-    align-items: center; 
+    width: 100%;
+    height: auto;
 }
 
 .career-title{
@@ -184,6 +183,63 @@
     font-size: var(--paragraph);
 }
 
-.career-img img{
-    border-radius: 20px;
+/* --- RESPONSIVENESS (Media Queries) --- */
+
+/* Tablets & Small Laptops */
+@media (max-width: 1024px) {
+    .about-top, 
+    .about-bottom,
+    .strength-container,
+    .career-container {
+        gap: 2rem;
+    }
+    
+    .about-title {
+        font-size: clamp(2.5rem, 8vw, var(--headings));
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    .about-section {
+        padding: var(--space-lg) var(--space-sm);
+    }
+
+    /* Stack columns vertically */
+    .about-top, 
+    .about-bottom,
+    .strength-container,
+    .career-container {
+        grid-template-columns: 1fr;
+        margin-bottom: 4rem;
+        gap: 2.5rem;
+    }
+
+    /* Adjust text alignment for mobile flow */
+    .main-heading, 
+    .about-description {
+        text-align: center;
+    }
+
+    .about-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Flip order for career section so text leads or image leads consistently */
+    .career-container .career-img {
+        grid-row: 1; /* Move image to top on mobile */
+    }
+
+    .metric-grid {
+        border-left: none;
+        border-top: 1px solid var(--border-subtle);
+        padding-top: 2rem;
+    }
+
+    .about-img, .strength-img, .career-img {
+        max-width: 500px;
+        margin: 0 auto;
+    }
 }
